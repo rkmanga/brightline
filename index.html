@@ -114,7 +114,9 @@
     font-style:normal;
     box-shadow:inset 0 -0.42em 0 var(--line);
   }
-  .tagline{color:var(--ink-soft);font-size:0.85rem;font-style:italic;display:none}
+  .brand{display:inline-flex;align-items:center}
+  .brand-logo{height:6.6rem;width:auto;display:block}
+  .tagline{color:var(--ink-soft);font-size:1.15rem;font-style:italic;display:none}
   @media(min-width:720px){.tagline{display:block}}
   .nav-cta{
     font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;
@@ -287,7 +289,7 @@
 
 <header>
   <div class="nav">
-    <a class="brand" href="#top">Bright <em>Line</em> Consulting</a>
+    <a class="brand" href="#top"><img src="logo.png" alt="Bright Line Consulting" class="brand-logo"></a>
     <span class="tagline">Clear lines. Working systems.</span>
     <a class="nav-cta" href="#book">Book a free consult</a>
   </div>
