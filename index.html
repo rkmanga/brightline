@@ -128,22 +128,28 @@
   .nav-cta:hover{background:var(--line)}
 
   /* ---------- hero ---------- */
-  .hero{padding-top:clamp(4.5rem,12vh,8.5rem)}
+  .hero{
+    padding-top:clamp(4.5rem,12vh,8.5rem);
+    background:var(--ink);color:var(--paper);
+  }
   .hero h1{
     font-size:clamp(2.1rem, 5.2vw, 3.9rem);
     font-weight:800;
     max-width:17ch;
   }
   .hero h1 .hl{
-    box-shadow:inset 0 -0.28em 0 var(--line);
+    box-shadow:inset 0 -0.28em 0 var(--line-deep);
+    color:var(--paper);
   }
   .hero .sub{
     margin-top:1.6rem;
     max-width:56ch;
     font-size:1.15rem;
-    color:var(--ink-soft);
+    color:#C9CFDA;
   }
   .cta-row{margin-top:2.4rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem}
+  .hero .btn{border-color:var(--paper);box-shadow:4px 4px 0 var(--line-deep)}
+  .hero .btn:hover{box-shadow:2px 2px 0 var(--line-deep)}
   .btn{
     display:inline-block;
     font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 110;
@@ -282,6 +288,8 @@
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
 </style>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -298,12 +306,14 @@
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero wrap">
-    <h1 class="reveal">Your firm is losing hours and money to broken processes. <span class="hl">I find the leaks and fix them.</span></h1>
-    <p class="sub reveal">Bright Line Consulting helps professional services firms and insurance agencies streamline operations and adopt AI safely. Process analysis, workflow redesign, and hands-on implementation, delivered by a senior business analyst with 7+ years of experience.</p>
-    <div class="cta-row reveal">
-      <a class="btn" href="#book">Book a Free 30-Minute Consult</a>
-      <a class="link-quiet" href="#process">See how it works ↓</a>
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="reveal">Your firm is losing hours and money to broken processes. <span class="hl">I find the leaks and fix them.</span></h1>
+      <p class="sub reveal">Bright Line Consulting helps professional services firms and insurance agencies streamline operations and adopt AI safely. Process analysis, workflow redesign, and hands-on implementation, delivered by a senior business analyst with 7+ years of experience.</p>
+      <div class="cta-row reveal">
+        <a class="btn" href="#book">Book a Free 30-Minute Consult</a>
+        <a class="link-quiet" href="#process">See how it works ↓</a>
+      </div>
     </div>
   </section>
 
@@ -384,7 +394,7 @@
     <div class="wrap">
       <h2 class="reveal">Find out what your <span class="hl">inefficiencies cost you</span></h2>
       <p class="reveal">The consult is free. The audit is fixed-fee. The findings are yours to act on, with me or without me.</p>
-      <a class="btn reveal" href="mailto:[Email]?subject=Free%2030-Minute%20Consult%20%E2%80%94%20Bright%20Line%20Consulting">Book a Free 30-Minute Consult</a>
+      <a class="btn reveal" href="https://calendly.com/rk-brightlineops/30min" onclick="Calendly.initPopupWidget({url:'https://calendly.com/rk-brightlineops/30min'});return false;">Book a Free 30-Minute Consult</a>
     </div>
   </section>
 
@@ -393,7 +403,7 @@
 <footer>
   <div class="wrap">
     <div class="fbrand">Bright Line Consulting <i>| Clear lines. Working systems.</i></div>
-    <div>Austin, Texas &nbsp;|&nbsp; <a href="mailto:[Email]">[Email]</a> &nbsp;|&nbsp; <a href="#">[LinkedIn]</a></div>
+    <div>Austin, Texas &nbsp;|&nbsp; <a href="mailto:rk@brightlineops.llc">Email</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/company/consult-bright-line" target="_blank" rel="noopener">LinkedIn</a></div>
     <div>Serving professional services firms and insurance agencies nationwide. Remote and on-site engagements available.</div>
   </div>
 </footer>
