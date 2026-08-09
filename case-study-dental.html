@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Drawing the Line on AI in a Dental Practice | Bright Line Consulting</title>
+<meta name="description" content="How a healthcare practice adopted AI tools and smart devices without exposing itself to legal liability. A Bright Line Consulting case study.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233B;
+    --ink-soft:#42506A;
+    --paper:#FAFAF8;
+    --paper-raise:#FFFFFF;
+    --line:#F2C500;         /* the bright line */
+    --line-deep:#E0B400;
+    --rule:#DDE1E7;
+    --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:1.075rem;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--line);color:var(--ink)}
+
+  h1,h2,h3,.display{
+    font-family:"Archivo", "Helvetica Neue", Arial, sans-serif;
+    font-variation-settings:"wdth" 112;
+    line-height:1.06;
+    letter-spacing:-0.015em;
+  }
+  .mono{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.78rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+  }
+
+  a{color:inherit}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--line-deep);
+    outline-offset:3px;
+  }
+
+  /* ---------- the running bright line ---------- */
+  .track{
+    position:fixed;
+    top:0;left:clamp(16px, 4vw, 56px);
+    width:4px;height:100%;
+    background:var(--rule);
+    z-index:5;
+  }
+  .track .fill{
+    position:absolute;top:0;left:0;width:100%;
+    height:0%;
+    background:var(--line);
+    box-shadow:0 0 0 0.5px var(--line-deep);
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding-left:clamp(56px, 10vw, 140px);
+    padding-right:clamp(20px, 5vw, 48px);
+  }
+
+  section{padding:clamp(4rem,9vh,7rem) 0;position:relative}
+
+  /* section marker: node on the line */
+  .marker{
+    display:flex;align-items:center;gap:0.9rem;
+    margin-bottom:2.2rem;
+  }
+  .marker::before{
+    content:"";
+    width:26px;height:4px;
+    background:var(--line);
+    outline:1px solid var(--line-deep);
+    flex:none;
+  }
+  .marker .mono{color:var(--ink-soft)}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav{
+    max-width:var(--max);margin:0 auto;
+    padding:0.85rem clamp(20px,5vw,48px) 0.85rem clamp(56px,10vw,140px);
+    display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  }
+  .brand{
+    font-family:"Archivo",sans-serif;
+    font-variation-settings:"wdth" 118;
+    font-weight:800;font-size:1.02rem;letter-spacing:0.01em;
+    text-decoration:none;white-space:nowrap;
+  }
+  .brand{display:inline-flex;align-items:center}
+  .brand-logo{height:6.6rem;width:auto;display:block}
+  .tagline{color:var(--ink-soft);font-size:1.15rem;font-style:italic;display:none}
+  @media(min-width:720px){.tagline{display:block}}
+  .nav-cta{
+    font-family:"IBM Plex Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;
+    text-transform:uppercase;text-decoration:none;
+    border:1.5px solid var(--ink);
+    padding:0.5rem 0.9rem;white-space:nowrap;
+    transition:background .15s ease;
+  }
+  .nav-cta:hover{background:var(--line)}
+
+  /* ---------- page title ---------- */
+  .back-link{
+    font-family:"IBM Plex Mono",monospace;font-size:0.8rem;letter-spacing:0.06em;
+    text-underline-offset:4px;
+    display:inline-block;margin-bottom:1.6rem;
+  }
+  .page-title{
+    padding-top:clamp(3.5rem,10vh,6rem);
+    background:var(--ink);color:var(--paper);
+  }
+  .page-title .marker .mono{color:#C9CFDA}
+  .page-title h1{
+    font-size:clamp(1.9rem, 4.4vw, 3.1rem);
+    font-weight:800;
+    max-width:22ch;
+  }
+  .page-title .sub{
+    margin-top:1.4rem;
+    max-width:58ch;
+    font-size:1.15rem;
+    color:#C9CFDA;
+  }
+
+  /* ---------- article sections ---------- */
+  article h2{
+    font-size:clamp(1.5rem,2.9vw,2.05rem);font-weight:800;margin-bottom:1.5rem;
+  }
+  article p{max-width:64ch}
+  article p+p{margin-top:1rem}
+  .note{font-style:italic;color:var(--ink-soft);margin-top:1rem;max-width:64ch}
+
+  .pain{list-style:none;max-width:62ch}
+  .pain li{
+    padding:1rem 0 1rem 1.6rem;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+  }
+  .pain li::before{
+    content:"";
+    position:absolute;left:0;top:1.72rem;
+    width:14px;height:3px;background:var(--line);outline:1px solid var(--line-deep);
+  }
+  .closer{
+    margin-top:2rem;max-width:56ch;
+    font-size:1.2rem;font-style:italic;
+  }
+  .closer strong{font-style:normal}
+
+  /* ---------- process-style steps ---------- */
+  .steps{list-style:none;counter-reset:step;max-width:66ch}
+  .steps li{
+    counter-increment:step;
+    display:grid;grid-template-columns:auto 1fr;gap:1.2rem;
+    padding:1.3rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .steps li::before{
+    content:counter(step, decimal-leading-zero);
+    font-family:"IBM Plex Mono",monospace;
+    font-size:0.85rem;color:var(--ink-soft);
+    padding-top:0.35rem;
+  }
+  .steps h3{font-size:1.12rem;font-weight:700;display:inline;margin-right:0.4rem}
+  .steps p{display:inline;color:var(--ink-soft)}
+
+  .btn{
+    display:inline-block;
+    font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 110;
+    font-weight:700;font-size:1rem;
+    background:var(--line);
+    color:var(--ink);
+    text-decoration:none;
+    padding:0.95rem 1.6rem;
+    border:1.5px solid var(--ink);
+    box-shadow:4px 4px 0 var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+
+  /* ---------- final cta ---------- */
+  .final{
+    background:var(--ink);color:var(--paper);
+    padding:clamp(4rem,10vh,7rem) 0;
+  }
+  .final h2{
+    font-size:clamp(1.9rem,4vw,3rem);font-weight:800;
+    max-width:20ch;
+  }
+  .final h2 .hl{box-shadow:inset 0 -0.26em 0 var(--line-deep);color:var(--paper)}
+  .final p{margin-top:1.2rem;max-width:52ch;color:#C9CFDA;font-size:1.12rem}
+  .final .btn{margin-top:2.2rem;border-color:var(--paper);box-shadow:4px 4px 0 var(--line-deep)}
+  .final .btn:hover{box-shadow:2px 2px 0 var(--line-deep)}
+
+  /* ---------- footer ---------- */
+  footer{border-top:6px solid var(--line);padding:2.2rem 0 3rem;background:var(--paper)}
+  footer .wrap{display:flex;flex-direction:column;gap:0.5rem;font-size:0.92rem;color:var(--ink-soft)}
+  footer .fbrand{font-family:"Archivo",sans-serif;font-weight:700;color:var(--ink)}
+  footer .fbrand i{font-weight:400;color:var(--ink-soft)}
+  footer a{text-underline-offset:3px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease, transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+</style>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body>
+
+<div class="track" aria-hidden="true"><div class="fill" id="lineFill"></div></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html#top"><img src="logo.png" alt="Bright Line Consulting" class="brand-logo"></a>
+    <span class="tagline">Clear lines. Working systems.</span>
+    <a class="nav-cta" href="#book">Book a free consult</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- PAGE TITLE -->
+  <section class="page-title">
+    <div class="wrap">
+      <a class="back-link reveal" href="index.html">&larr; Back to Bright Line Consulting</a>
+      <div class="marker reveal"><span class="mono">Case study</span></div>
+      <h1 class="reveal">Drawing the Line on AI in a Dental Practice</h1>
+      <p class="sub reveal">How a healthcare practice adopted AI tools and smart devices without exposing itself to legal liability.</p>
+    </div>
+  </section>
+
+  <!-- THE CLIENT -->
+  <section class="wrap">
+    <article>
+      <div class="marker reveal"><span class="mono">The client</span></div>
+      <p class="reveal">A private dental practice. Like most healthcare practices, it operates under strict patient privacy obligations, including HIPAA, and its clinical spaces are among the most privacy-sensitive environments in any small business.</p>
+      <p class="note reveal">(Anonymized at the client's request.)</p>
+    </article>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="wrap">
+    <article>
+      <div class="marker reveal"><span class="mono">The problem</span></div>
+      <h2 class="reveal">Unmanaged risk, one device at a time</h2>
+      <p class="reveal">Staff had started using AI tools and smart devices in and around the practice: smart glasses, wearable recorders, phone cameras, and AI-powered apps. Each use seemed harmless in isolation. Together, they created unmanaged risk:</p>
+      <ul class="pain reveal">
+        <li>No rules governed when recording or photography was permitted, by whom, or of what.</li>
+        <li>No policy addressed AI tools processing information that could include patient data.</li>
+        <li>The practice had no documented position to point to if a patient complained, a device captured something it should not have, or a regulator asked questions.</li>
+      </ul>
+      <p class="closer reveal">The practice did not want to ban the technology. It wanted to use it safely. <strong>That distinction is the entire engagement: the goal was a clear boundary, not a blanket prohibition.</strong></p>
+    </article>
+  </section>
+
+  <!-- THE ENGAGEMENT -->
+  <section class="wrap">
+    <article>
+      <div class="marker reveal"><span class="mono">The engagement</span></div>
+      <h2 class="reveal">How I drew the line</h2>
+      <p class="reveal" style="margin-bottom:1.8rem">I was brought in to define that boundary. The work followed the same process I use for every operations engagement:</p>
+      <ol class="steps">
+        <li class="reveal"><div><h3>Assess.</h3><p>I reviewed how staff were actually using devices and AI tools day to day, not how anyone assumed they were being used. The gap between the two is where liability lives.</p></div></li>
+        <li class="reveal"><div><h3>Identify the exposure.</h3><p>I mapped the specific scenarios that created legal risk: recording in clinical areas, patient-identifiable data reaching third-party AI services, consent gaps, and staff personal devices.</p></div></li>
+        <li class="reveal"><div><h3>Draw the lines.</h3><p>I drafted a recording, photography, AI, and smart device policy that stated, in plain language, what staff may do, what they may not, and what requires patient consent. No ambiguity, no legalese staff would ignore.</p></div></li>
+        <li class="reveal"><div><h3>Make it operational.</h3><p>A policy only works if people follow it. The document was written for daily use by front-office and clinical staff, not for a binder.</p></div></li>
+      </ol>
+    </article>
+  </section>
+
+  <!-- THE OUTCOME -->
+  <section class="wrap">
+    <article>
+      <div class="marker reveal"><span class="mono">The outcome</span></div>
+      <h2 class="reveal">The result</h2>
+      <ul class="pain reveal">
+        <li>The practice adopted the policy without disruption to operations or staff pushback.</li>
+        <li>Staff now have clear, written rules for recording, photography, and AI tool use, including where patient consent is required.</li>
+        <li>The practice has a documented, defensible position on AI and smart device use, closing a liability gap that previously had no answer.</li>
+        <li>Technology use continued. The practice drew a line; it did not build a wall.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- WHY THIS MATTERS -->
+  <section class="wrap">
+    <article>
+      <div class="marker reveal"><span class="mono">Why this matters to your firm</span></div>
+      <p class="reveal">Healthcare is the hardest test for AI governance: the privacy stakes are maximal and the regulatory exposure is real. The same problem now exists in every professional services firm. Your staff are already using AI tools, with client data, whether or not you have written rules for it. Law firms face privilege and confidentiality exposure. Insurance agencies face E&amp;O and data handling exposure. Accounting firms face client financial data exposure.</p>
+      <p class="reveal">The fix is the same one this practice needed: assess actual use, identify the exposure, and draw bright lines your staff can actually follow.</p>
+    </article>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="final" id="book">
+    <div class="wrap">
+      <h2 class="reveal">Your staff are already using AI. <span class="hl">Get the rules in writing.</span></h2>
+      <p class="reveal">The AI Readiness and Governance Package delivers a usage policy tailored to your firm, staff guidelines, and tool recommendations mapped to your workflows. Fixed fee. Starting at $2,000.</p>
+      <a class="btn reveal" href="https://calendly.com/rk-brightlineops/30min" onclick="Calendly.initPopupWidget({url:'https://calendly.com/rk-brightlineops/30min'});return false;">Book a Free 30-Minute Consult</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Bright Line Consulting <i>| Clear lines. Working systems.</i></div>
+    <div>Based in Austin, TX &mdash; serving clients nationwide &nbsp;|&nbsp; <a href="mailto:rk@brightlineops.llc">Email</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/company/consult-bright-line" target="_blank" rel="noopener">LinkedIn</a></div>
+    <div>Remote and on-site engagements available for professional services firms and insurance agencies.</div>
+  </div>
+</footer>
+
+<script>
+  // The bright line grows with scroll progress
+  const fill = document.getElementById('lineFill');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function updateLine(){
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(1, window.scrollY / max) : 1;
+    fill.style.height = (p * 100).toFixed(2) + '%';
+  }
+  if (reduce){ fill.style.height = '100%'; }
+  else {
+    updateLine();
+    window.addEventListener('scroll', updateLine, {passive:true});
+    window.addEventListener('resize', updateLine);
+  }
+
+  // Section reveals
+  const els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)){
+    els.forEach(e => e.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:0.12});
+    els.forEach(e => io.observe(e));
+  }
+</script>
+
+</body>
+</html>
