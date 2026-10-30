@@ -11,8 +11,7 @@ const BL_PRODUCTS = {
   },
   calculator: {
     price: "$49",          // e.g. "$29"
-    etsy: "",           // Etsy listing URL
-    // notion: ""          // Notion Marketplace listing URL
+    etsy: ""           // Etsy listing URL
   }
 };
 const BL_SUPPORT = "rk@brightlineops.llc";
@@ -41,7 +40,7 @@ const BL_SUPPORT = "rk@brightlineops.llc";
   });
 
   // Calculator marketplace links: hidden until set.
-  ["etsy","notion"].forEach(key => {
+  ["etsy"].forEach(key => {
     document.querySelectorAll('[data-buy="' + key + '"]').forEach(a => {
       const url = BL_PRODUCTS.calculator[key];
       if (url) { a.href = url; } else { a.hidden = true; }
