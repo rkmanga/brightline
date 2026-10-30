@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental Hygiene Production & Bonus Calculator | Bright Line Consulting</title>
+<meta name="description" content="A Google Sheets template that models hygienist pay on a guaranteed base plus production share: threshold, bonus, effective hourly rate, and labor cost as a percent of collections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="track" aria-hidden="true"><div class="fill" id="lineFill"></div></div>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html"><img src="logo.png" alt="Bright Line Consulting" class="brand-logo"></a>
+    <span class="tagline">Clear lines. Working systems.</span>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="dental.html">Dental practices</a></li>
+        <li><a href="resources.html" aria-current="page">Resources</a></li>
+      </ul>
+      <a class="nav-cta" href="index.html#book">Book a free consult</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- TITLE / HERO -->
+  <section class="page-title on-ink">
+    <div class="wrap">
+      <a class="back-link reveal" href="resources.html">&larr; All resources</a>
+      <div class="marker reveal"><span class="mono">Template &middot; For dental practices</span></div>
+      <h1 class="reveal">Model hygienist pay <span class="hl">before you offer it.</span></h1>
+      <p class="sub reveal">The Dental Hygiene Production &amp; Bonus Calculator is a Google Sheets template for one hygiene chair. Enter a base wage and collections. It returns the threshold, bonus, effective hourly rate, and labor cost as a percent of collections.</p>
+      <div class="cta-row reveal">
+        <a class="btn" data-buy="etsy" href="#">Buy on Etsy</a>
+        <a class="btn btn-ghost" data-buy="notion" href="#">Buy on Notion Marketplace</a>
+        <span class="fineprint">Google Sheets &middot; Excel download available<span data-price-wrap> &middot; <span data-price="calculator"></span></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKED EXAMPLE -->
+  <section class="wrap prose">
+    <div class="marker reveal"><span class="mono">What it answers</span></div>
+    <h2 class="reveal">Can you afford the offer, and is it competitive?</h2>
+    <p class="reveal">A flat hourly rate costs the same in a slow pay period as in a strong one. The calculator shows how a guaranteed base plus a 30% share of production above three times base keeps labor cost in line with revenue, and what the hygienist actually earns.</p>
+    <div class="worked reveal">
+      <span class="mono">Example pay period &middot; 10 days &times; 8 hours</span>
+      <table>
+        <tr><td>Guaranteed base ($48/hr)</td><td>$3,840</td></tr>
+        <tr><td>Threshold (3 &times; base)</td><td>$11,520</td></tr>
+        <tr><td>Collections</td><td>$15,000</td></tr>
+        <tr><td>Bonus (30% of $3,480 surplus)</td><td>$1,044</td></tr>
+        <tr><td>Gross pay &middot; effective rate</td><td>$4,884 &middot; $61.05/hr</td></tr>
+        <tr class="total"><td>Labor cost of collections</td><td>32.56% &middot; Healthy</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <section class="wrap prose">
+    <div class="marker reveal"><span class="mono">What&rsquo;s inside</span></div>
+    <h2 class="reveal">Four tabs, from offer to payroll</h2>
+    <ul class="contents reveal">
+      <li><span class="part">Tab 1</span><div><h3>Calculator</h3><p>Enter the hygienist&rsquo;s base wage, hours, pay-period days, threshold multiplier, accelerator rate, labor target, and collections. Formulas return base pay, threshold, surplus, bonus, gross pay, effective hourly rate, and labor %.</p></div></li>
+      <li><span class="part">Tab 1</span><div><h3>Model comparison</h3><p>Runs slow, typical, and strong production periods against a flat $65/hr offer, so you can see where flat pay overruns your margin.</p></div></li>
+      <li><span class="part">Tab 2</span><div><h3>Pay Period Log</h3><p>Log each day&rsquo;s hours and collections. Daily variance shows slow and strong days; the period summary reconciles the bonus for your payroll processor.</p></div></li>
+      <li><span class="part">Tab 3</span><div><h3>Implementation checklist</h3><p>Four steps to roll the model out in your practice.</p></div></li>
+    </ul>
+    <p class="note reveal">Edit only the input cells; calculated cells are locked to protect the formulas. Prefer Excel? Open your copy, then choose File &rarr; Download &rarr; Microsoft Excel.</p>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="wrap prose">
+    <div class="marker reveal"><span class="mono">Walkthrough</span></div>
+    <h2 class="reveal">See it in three minutes</h2>
+    <div class="video reveal">
+      <iframe src="https://www.youtube-nocookie.com/embed/OTMtFSJ6wuc" title="Dental Hygiene Production &amp; Bonus Calculator walkthrough" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wrap prose">
+    <div class="marker reveal"><span class="mono">FAQ</span></div>
+    <h2 class="reveal">Questions</h2>
+    <div class="faq reveal">
+      <details><summary>How do I get the template?</summary><p>Buy it on Etsy or Notion Marketplace. Your download includes a one-page guide with a link that copies the calculator into your own Google Drive.</p></details>
+      <details><summary>Do I need a Google account?</summary><p>Yes, to make your copy. A free account works. You can then download it as an Excel file.</p></details>
+      <details><summary>Does it handle more than one hygienist?</summary><p>Each copy models one hygiene chair. Make another copy for each additional hygienist.</p></details>
+      <details><summary>Is this payroll or tax software?</summary><p>No. It models compensation and reconciles the bonus for each pay period. Your payroll processor still runs payroll and withholding.</p></details>
+      <details><summary>Who do I contact with questions?</summary><p><a href="mailto:rk@brightlineops.llc">rk@brightlineops.llc</a>. I reply within two business days.</p></details>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section class="final on-ink">
+    <div class="wrap">
+      <h2 class="reveal">The numbers work. <span class="hl">Now hire on them.</span></h2>
+      <p class="reveal">The Hygienist Compensation &amp; Recruitment Playbook turns this model into job ads, interview scripts, and an offer-letter addendum candidates trust.</p>
+      <div class="cta-row reveal" style="margin-top:2.2rem">
+        <a class="btn" href="hygienist-compensation-recruitment-playbook.html">See the Playbook</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Bright Line Consulting <i>| Clear lines. Working systems.</i></div>
+    <div>Based in Austin, TX &mdash; serving clients nationwide &nbsp;|&nbsp; <a href="mailto:rk@brightlineops.llc">rk@brightlineops.llc</a> &nbsp;|&nbsp; <a href="https://www.linkedin.com/company/consult-bright-line" target="_blank" rel="noopener">LinkedIn</a></div>
+    <ul class="flinks">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="dental.html">Dental practices</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="case-study-dental.html">Case study</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="refunds.html">Refunds</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <div class="fcopy">&copy; <span data-year>2026</span> Bright Line Consulting. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
