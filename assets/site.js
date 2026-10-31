@@ -7,7 +7,7 @@
 const BL_PRODUCTS = {
   playbook: {
     price: "$197",          // e.g. "$97"
-    checkout: ""        // Stripe Payment Link with Managed Payments on, e.g. "https://buy.stripe.com/..."
+    checkout: "https://buy.stripe.com/dRm6oHh2u7ARgMl13l8k800"        // Stripe Payment Link with Managed Payments on, e.g. "https://buy.stripe.com/..."
   },
   calculator: {
     price: "$49",          // e.g. "$29"
